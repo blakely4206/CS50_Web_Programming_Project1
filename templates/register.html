@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    LogIn
+{% endblock %}
+
+{% block body %}
+    <h1>Create Account</h1>
+	<form action="{{ url_for ('create') }}" method="post">
+		<label color="red" name="message">
+		{{ message }}
+		</label>
+		<div class="form-group">
+            <input class="form-control" name="user_name" placeholder="Full Name">
+            </select>
+        </div>
+		
+        <div class="form-group">
+            <input class="form-control" name="user_id" placeholder="User Name">
+            </select>
+        </div>
+		
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password">
+        </div>
+		
+		 <div class="form-group">
+            <button class="btn btn-primary">Register</button>
+        </div>		 
+    </form>
+{% endblock %}

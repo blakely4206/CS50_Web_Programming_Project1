@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Result
+{% endblock %}
+
+{% block body %}
+    <h1>{{ book['title']}}</h1>
+	<ul>
+		<li>Author: {{ book['author'] }}</li>
+		<li>Year: {{ book['year'] }}</li>
+		<li>ISBN: {{ book['isbn'] }}</li>
+		<li>Average <a href="http://www.goodreads.com">Goodreads</a> rating: {{ good_review['average_review'] }}/5.00 Stars out of {{ good_review['review_count'] }} reviews</li>
+	</ul>
+	
+	<form action="{{ url_for ('review', isbn=book['isbn']) }}" method="post">
+		<div class="form-group">
+			Rate this Book
+            <select class="form-control" name="stars">
+			   <option value="0">1 Star</option>
+			   <option value="1"/>2 Stars</option>
+			   <option value="3"/>3 Stars</option>
+			   <option value="4"/>4 Stars</option>
+			   <option value="5"/>5 Stars</option>
+            </select>
+        </div>
+		<div class="form-group">
+				<input class="form-control" name="review_text" placeholder="Review the book">
+			</div>
+			<div class="form-group">
+				<button class="btn btn-primary">Submit</button>
+			</div>
+	</form>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block body %}
+    <h1>Search Results</h1>
+	<table>
+		<th>Title</th>
+		<th>Author</th>
+		<th>Year</th>
+	{% for x in results %}
+		
+			<tr>
+				<td>
+					<a href="{{ url_for('result', isbn=x['isbn']) }}"> {{x['title']}} </a>
+			     </td> 
+				<td>{{x['author']}}</td> 
+				<td>{{x['year']}}</td>	
+			</tr>	
+		</a>
+	{% endfor %}
+	</table>
+{% endblock %}
