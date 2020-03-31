@@ -8,10 +8,13 @@ from models import *
 
 app = Flask(__name__)
 
-# Check for environment variable
+# Check for environment variables
 if not os.getenv("DATABASE_URL"):
     raise RuntimeError("DATABASE_URL is not set")
 
+if not os.getenv("GOODREADS_KEY"):
+    raise RuntimeError("GOODREADS_KEY is not set")
+    
 # Configure session to use filesystem
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
